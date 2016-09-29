@@ -11,6 +11,12 @@
   </engines>
 
   <license>Apache 2.0 License</license>
+        
+  <asset src="www/videoplugin.js" target="js/videoplugin.js"/>
+
+  <js-module src="www/videoplugin.js" name="videoplugin">
+    <clobbers target="videoplugin" />
+  </js-module>
 
   <platform name="android">
     <framework src="src/android/library" custom="true" />
