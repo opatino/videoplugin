@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/home/opatino/MiTV_5_last_exoplayerv2/MiTV_5_oscar/library/src/main/assets"/><source path="/home/opatino/MiTV_5_last_exoplayerv2/MiTV_5_oscar/library/build/generated/assets/shaders/release"/></dataSet><dataSet config="release"><source path="/home/opatino/MiTV_5_last_exoplayerv2/MiTV_5_oscar/library/src/release/assets"/></dataSet></merger>

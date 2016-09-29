@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_play.png",
+        "source": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_play.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_previous.png",
+        "source": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_previous.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_fastforward.png",
+        "source": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_fastforward.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_next.png",
+        "source": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_next.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_rewind.png",
+        "source": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_rewind.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_rewind.png",
+        "source": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_rewind.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_fastforward.png",
+        "source": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_fastforward.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_pause.png",
+        "source": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_pause.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_pause.png",
+        "source": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_pause.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_previous.png",
+        "source": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_previous.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_next.png",
+        "source": "/home/opatino/gitexoplayer/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_next.png"
+    },
+    {
+        "merged": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/res/merged/androidTest/debug/drawable-mdpi-v4/exo_controls_play.png",
+        "source": "/home/opatino/gitexoplayer_dev/ExoPlayer/library/buildout/intermediates/bundles/debug/res/drawable-mdpi-v4/exo_controls_play.png"
+    }
+]
