@@ -31,9 +31,6 @@ module.exports = {
     muteVideo: function (str, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "VideoPlugin", "muteVideo", [str]);
     },
-    setVideoSize: function (str, successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "setVideoSize", [str]);
-    },
     playDrm: function (str, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "VideoPlugin", "playDrm", [str]);
     },
@@ -70,6 +67,9 @@ module.exports = {
     playPositionVOD: function (str, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "VideoPlugin", "playPositionVOD", [str]);
     },
+    playTimeVOD: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playTimeVOD", [str]);
+    },
     seekVOD: function (str, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "VideoPlugin", "seekVOD", [str]);
     },
@@ -90,5 +90,8 @@ module.exports = {
     },
     setVideoSize: function( str, str1, str2, str3, str4, successCallback, errorCallback ) {
         cordova.exec(successCallback, errorCallback, "VideoPlugin", "setVideoSize", [str, str1, str2, str3, str4]);
-};
+    },
+    state: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "state", [str]);
+    },
 };
