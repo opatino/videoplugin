@@ -4,88 +4,91 @@ module.exports = {
     playIP: function (str, successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "VideoPlugin", "playIP", [str]);
     },
-    setToken: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "setToken", []);
+    setToken: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "setToken", [str]);
     },
-    setLicense: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "setLicense", []);
+    setLicense: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "setLicense", [str]);
     },
-    getAudios: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "getAudios", []);
+    getAudios: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "getAudios", [str]);
     },
-    changeAudio: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "changeAudio", []);
+    changeAudio: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "changeAudio", [str]);
     },
-    getSubtitles: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "getSubtitles", []);
+    getSubtitles: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "getSubtitles", [str]);
     },
-    changeSubtitle: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "changeSubtitle", []);
+    changeSubtitle: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "changeSubtitle", [str]);
     },
-    getSubtitles: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "getSubtitles", []);
+    getSubtitles: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "getSubtitles", [str]);
     },
-    supportMulticast: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "supportMulticast", []);
+    supportMulticast: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "supportMulticast", [str]);
     },
-    muteVideo: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "muteVideo", []);
+    muteVideo: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "muteVideo", [str]);
     },
-    setVideoSize: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "setVideoSize", []);
+    setVideoSize: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "setVideoSize", [str]);
     },
-    playDrm: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playDrm", []);
+    playDrm: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playDrm", [str]);
     },
-    playAudio: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playAudio", []);
+    playAudio: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playAudio", [str]);
     },
-    pauseAudio: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "pauseAudio", []);
+    pauseAudio: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "pauseAudio", [str]);
     },
-    resumeAudio: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "resumeAudio", []);
+    resumeAudio: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "resumeAudio", [str]);
     },
-    stopAudio: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "stopAudio", []);
+    stopAudio: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "stopAudio", [str]);
     },
-    seekAudio: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "seekAudio", []);
+    seekAudio: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "seekAudio", [str]);
     },
-    playPositionAudio: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playPositionAudio", []);
+    playPositionAudio: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playPositionAudio", [str]);
     },
-    playTimeAudio: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playTimeAudio", []);
+    playTimeAudio: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playTimeAudio", [str]);
     },
-    playVOD: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playVOD", []);
+    playVOD: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playVOD", [str]);
     },
-    pauseVOD: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "pauseVOD", []);
+    pauseVOD: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "pauseVOD", [str]);
     },
-    resumeVOD: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "resumeVOD", []);
+    resumeVOD: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "resumeVOD", [str]);
     },
-    playPositionVOD: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playPositionVOD", []);
+    playPositionVOD: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playPositionVOD", [str]);
     },
-    seekVOD: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "seekVOD", []);
+    seekVOD: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "seekVOD", [str]);
     },
-    playRtsp: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playRtsp", []);
+    playRtsp: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playRtsp", [str]);
     },
-    ffRtsp: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "ffRtsp", []);
+    ffRtsp: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "ffRtsp", [str]);
     },
-    rewindRtsp: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "rewindRtsp", []);
+    rewindRtsp: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "rewindRtsp", [str]);
     },
-    seekRtsp: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "seekRtsp", []);
+    seekRtsp: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "seekRtsp", [str]);
     },
-    release: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "release", []);
-    }
+    release: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "release", [str]);
+    },
+    setVideoSize: function( str, str1, str2, str3, str4, successCallback, errorCallback ) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "setVideoSize", [str, str1, str2, str3, str4]);
+};
 };
