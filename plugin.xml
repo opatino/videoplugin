@@ -26,5 +26,7 @@
       </feature>
     </config-file>
   </platform>
+        
+  <source-file src="src/android/NetworkInfoPlugin.java" target-dir="src/com/movistar/tvsindesco/cordova/plugin" />
 
 </plugin>
