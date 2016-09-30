@@ -1,8 +1,8 @@
 /*global cordova, module*/
 
 module.exports = {
-    playIP: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playIP", []);
+    playIP: function (str, successCallback, errorCallback) {
+        cordova.exec(successCallback, errorCallback, "VideoPlugin", "playIP", [str]);
     },
     setToken: function (successCallback, errorCallback) {
         cordova.exec(successCallback, errorCallback, "VideoPlugin", "setToken", []);
