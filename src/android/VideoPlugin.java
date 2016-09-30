@@ -1,4 +1,4 @@
-package com.movistar.tvsindesco.videoplugin;
+package com.movistar.tvsindesco.cordova.plugin;
 
 import android.content.Context;
 import android.net.Uri;
