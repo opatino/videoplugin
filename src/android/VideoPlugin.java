@@ -3,6 +3,7 @@ package com.movistar.tvsindesco.cordova.plugin;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Display;
@@ -310,22 +311,10 @@ public class VideoPlugin extends CordovaPlugin implements ExoPlayer.EventListene
                         player.release();
                         player = null;
                     }
-
-//                    if (player == null || player.getSurface() == null) {
                     initializePlayer(url);
                     player.setVideoSurfaceView(MainActivity.getSurfaceView_live());
                     player.setTextOutput(componentListener);
-//                    simple_view.setPlayer(player);
-//                    } else {
-//                        Log.i(LOGTAG, "PASOOO2");
-//                        DemoPlayer.RendererBuilder rendererBuilder = new ExtractorRendererBuilder(context, userAgent, Uri.parse(url));
-//                        player.setRendererBuilder(rendererBuilder);
-//                    }
-
-//                    player.prepare();
                     player.setPlayWhenReady(true);
-
-
                 }
             });
 
@@ -360,38 +349,33 @@ public class VideoPlugin extends CordovaPlugin implements ExoPlayer.EventListene
 //            });
 //
 //            return true;
-//        } else if (action.equals("state")) {
-//            callbackContext.success(stateVideo);
-//            return true;
-//        } else if (action.equals("playVOD")) {
-//            cordova.getActivity().runOnUiThread(new Runnable() {
-//                public void run() {
-//                    currentPlay = PLAYING_VOD;
-//                    codecMpeg123 = false;
-//                    String url = null;
-//                    try {
-//                        url = args.getString(0);
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//                    urlPlaying = url;
-//                    Log.i(LOGTAG, "url: " + url);
-//                    if (playerAudio != null) {
-//                        playerAudio.stop();
-//                    }
-//                    if (player != null) {
-//                        player.release();
-//                    }
-//                    player = new DemoPlayer(new ExtractorRendererBuilder(context, userAgent, Uri.parse(url)));
-//                    player.setSurface(surface_live);
-//
-//
-//                    player.prepare();
-//                    player.setPlayWhenReady(true);
-//                }
-//            });
-//
-//            return true;
+        } else if (action.equals("state")) {
+            callbackContext.success(stateVideo);
+            return true;
+        } else if (action.equals("playVOD")) {
+            cordova.getActivity().runOnUiThread(new Runnable() {
+                public void run() {
+                    currentPlay = PLAYING_VOD;
+                    codecMpeg123 = false;
+                    String url = null;
+                    try {
+                        url = args.getString(0);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    urlPlaying = url;
+                    Log.i(LOGTAG, "url: " + url);
+                    if (player != null) {
+                        player.release();
+                    }
+                    initializePlayer(url);
+                    player.setVideoSurfaceView(MainActivity.getSurfaceView_live());
+                    player.setTextOutput(componentListener);
+                    player.setPlayWhenReady(true);
+                }
+            });
+
+            return true;
 //        } else if (action.equals("pauseVOD")) {
 //            player.getPlayerControl().pause();
 //
@@ -457,23 +441,18 @@ public class VideoPlugin extends CordovaPlugin implements ExoPlayer.EventListene
 //            player.rtspPlay(Integer.parseInt(args.getString(0)));
 //
 //            return true;
-//        } else if (action.equals("playAudio")) {
-//            currentPlay = PLAYING_AUDIO;
-//            codecMpeg123 = false;
-//            final String url = args.getString(0);
-//            urlPlaying = url;
-//            if (player != null) {
-//                player.release();
-//            }
-//            if (playerAudio != null) {
-//                playerAudio.release();
-//            }
-//            playerAudio = new DemoPlayer(new ExtractorRendererBuilder(context, userAgent, Uri.parse(url)));
+        } else if (action.equals("playAudio")) {
+            currentPlay = PLAYING_AUDIO;
+            codecMpeg123 = false;
+            final String url = args.getString(0);
+            urlPlaying = url;
+            if (player != null) {
+                player.release();
+            }
+            initializePlayer(url);
+            player.setPlayWhenReady(true);
 //
-//            playerAudio.prepare();
-//            playerAudio.setPlayWhenReady(true);
-//
-//            return true;
+            return true;
 //        } else if (action.equals("pauseAudio")) {
 //            playerAudio.getPlayerControl().pause();
 //
@@ -482,12 +461,12 @@ public class VideoPlugin extends CordovaPlugin implements ExoPlayer.EventListene
 //            playerAudio.getPlayerControl().start();
 //
 //            return true;
-//        } else if (action.equals("stopAudio")) {
-//            if (playerAudio != null) {
-//                playerAudio.stop();
-//            }
-//
-//            return true;
+        } else if (action.equals("stopAudio")) {
+            if (playerAudio != null) {
+                playerAudio.stop();
+            }
+
+            return true;
 //        } else if (action.equals("seekAudio")) {
 //            if (playerAudio != null) {
 //                playerAudio.seekTo(Integer.parseInt(args.getString(0)));
@@ -546,10 +525,27 @@ public class VideoPlugin extends CordovaPlugin implements ExoPlayer.EventListene
 //            });
 //
 //            return true;
-//        } else if (action.equals("changeAudio")) {
-//            player.setSelectedTrack(DemoPlayer.TYPE_AUDIO, Integer.parseInt(args.getString(0)));
-//            callbackContext.success("1");
-//            return true;
+        } else if (action.equals("changeAudio")) {
+            MappingTrackSelector.TrackInfo  trackInfo = trackSelector.getTrackInfo();
+            int rendererCount = trackInfo.rendererCount;
+            int i;
+            for (i = 0;  i < rendererCount; i++) {
+                if (player.getRendererType(i) == C.TRACK_TYPE_AUDIO) {
+                    break;
+                }
+            }
+            TrackGroupArray trackGroups = trackInfo.getTrackGroups(i);
+            int audioTrack = Integer.parseInt(args.getString(0));
+            Log.d(LOGTAG, "audio elegido " + audioTrack);
+            if (audioTrack == -1) {
+                trackSelector.clearSelectionOverrides(i);
+                callbackContext.success("1");
+                return true;
+            }
+            override = new MappingTrackSelector.SelectionOverride(FIXED_FACTORY, audioTrack, 0);
+            trackSelector.setSelectionOverride(i, trackGroups, override);
+            callbackContext.success("1");
+            return true;
         } else if (action.equals("getAudios")) {
             MappingTrackSelector.TrackInfo  trackInfo = trackSelector.getTrackInfo();
             int rendererCount = trackInfo.rendererCount;
@@ -595,7 +591,7 @@ public class VideoPlugin extends CordovaPlugin implements ExoPlayer.EventListene
 //            } else {
 //                callbackContext.success(audioInfo);
 //            }
-//
+
             return true;
         } else if (action.equals("getSubtitles")) {
             String subtitlesInfo = "";
@@ -659,52 +655,50 @@ public class VideoPlugin extends CordovaPlugin implements ExoPlayer.EventListene
             }
 
             return true;
-//        } else if (action.equals("setVideoSize")) {
-//            float APP_WIDTH = 1280;
-//            float appWidth = webView.getWidth();
-//            float appHeight = webView.getHeight();
-//            final android.view.ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) surfaceView_live.getLayoutParams();
-//            if(args.getString(0).equals("1")) {
-//                float scale = APP_WIDTH / appWidth;
-//                Log.i(LOGTAG, "screenWidth: "+appWidth);
-//                Log.i(LOGTAG, "scale: "+scale);
-//                float width = Integer.parseInt(args.getString(1))/scale;
-//                float height = Integer.parseInt(args.getString(2))/scale;
-//                float bottomMargin = Integer.parseInt(args.getString(3))/scale;
-//                float rightMargin = Integer.parseInt(args.getString(3))/scale;
-//                lp.width = (int) width;
-//                lp.height =(int) height;
-//                lp.topMargin = (int) (appHeight - height - bottomMargin);
-//                lp.leftMargin = (int) (appWidth - width -rightMargin);
-//                cordova.getActivity().runOnUiThread(new Runnable() {
-//                    public void run() {
-//                        surfaceView_live.setLayoutParams(lp);
-//                        MainActivity.getVideoFrame().bringToFront();
-//                    }
-//                });
-//
-//            }else {
-//                lp.width = (int) appWidth;
-//                lp.height = (int) appHeight;
-//                lp.topMargin = 0;
-//                lp.leftMargin = 0;
-//                cordova.getActivity().runOnUiThread(new Runnable() {
-//                    public void run() {
-//                    surfaceView_live.setLayoutParams(lp);
-//                        webView.bringToFront();
-//                    }
-//                });
-//            }
-//
-//            return true;
-//        } else if (action.equals("muteVideo")) {
-//            if(args.getString(0).equals("1")) {
-//                player.mute(true);
-//            }else{
-//                player.mute(false);
-//            }
-//
-//            return true;
+        } else if (action.equals("setVideoSize")) {
+            float APP_WIDTH = 1280;
+            float appWidth = webView.getWidth();
+            float appHeight = webView.getHeight();
+            final android.view.ViewGroup.MarginLayoutParams lp = (ViewGroup.MarginLayoutParams) surfaceView_live.getLayoutParams();
+            if(args.getString(0).equals("1")) {
+                float scale = APP_WIDTH / appWidth;
+                Log.i(LOGTAG, "screenWidth: "+appWidth);
+                Log.i(LOGTAG, "scale: "+scale);
+                float width = Integer.parseInt(args.getString(1))/scale;
+                float height = Integer.parseInt(args.getString(2))/scale;
+                float bottomMargin = Integer.parseInt(args.getString(3))/scale;
+                float rightMargin = Integer.parseInt(args.getString(3))/scale;
+                lp.width = (int) width;
+                lp.height =(int) height;
+                lp.topMargin = (int) (appHeight - height - bottomMargin);
+                lp.leftMargin = (int) (appWidth - width -rightMargin);
+                cordova.getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                        surfaceView_live.setLayoutParams(lp);
+                        MainActivity.getVideoFrame().bringToFront();
+                    }
+                });
+
+            }else {
+                lp.width = (int) appWidth;
+                lp.height = (int) appHeight;
+                lp.topMargin = 0;
+                lp.leftMargin = 0;
+                cordova.getActivity().runOnUiThread(new Runnable() {
+                    public void run() {
+                    surfaceView_live.setLayoutParams(lp);
+                        webView.bringToFront();
+                    }
+                });
+            }
+            return true;
+        } else if (action.equals("muteVideo")) {
+            if(args.getString(0).equals("1")) {
+                player.setVolume(0);
+            }else{
+                player.setVolume(0);
+            }
+            return true;
         } else {
             return false;
         }
