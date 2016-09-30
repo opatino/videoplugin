@@ -22,7 +22,7 @@ import com.google.android.exoplayer2.ExoPlayerFactory;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.SimpleExoPlayer;
 import com.google.android.exoplayer2.Timeline;
-import com.google.android.exoplayer2.demo.EventLogger;
+import com.google.android.exoplayer2.EventLogger;
 import com.google.android.exoplayer2.drm.DrmSessionManager;
 import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
 import com.google.android.exoplayer2.source.ConcatenatingMediaSource;
@@ -42,7 +42,6 @@ import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
 import com.google.android.exoplayer2.trackselection.FixedTrackSelection;
 import com.google.android.exoplayer2.trackselection.MappingTrackSelector;
 import com.google.android.exoplayer2.trackselection.TrackSelection;
-import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.ui.SubtitleView;
 import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
@@ -51,7 +50,7 @@ import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.upstream.HttpDataSource;
 import com.google.android.exoplayer2.util.Util;
 
-import com.tvsindesco.MiTV5.MainActivity;
+import com.movistar.tvsindesco.MainActivity;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.CordovaPlugin;
@@ -78,7 +77,7 @@ public class VideoPlugin extends CordovaPlugin implements ExoPlayer.EventListene
     private static EventLogger eventLogger;
     static boolean errorDRM = false;
     static boolean errorNotFileDRM = false;
-    static Surface surface_live = MainActivity.getSurface_live();
+//    static Surface surface_live = MainActivity.getSurfaceView_live();
     static SurfaceView surfaceView_live = MainActivity.getSurfaceView_live();
     static SystemWebView webView = MainActivity.getWebView();
     static boolean codecMpeg123 = false;
@@ -269,13 +268,13 @@ public class VideoPlugin extends CordovaPlugin implements ExoPlayer.EventListene
 
     public static void setDRMError() {
         errorDRM = true;
-        MainActivity.fireEvent("errorDrm");
+//        MainActivity.fireEvent("errorDrm");
     }
 
     public static void setDRMerrorNotFile() {
         if (!errorNotFileDRM) {
             errorNotFileDRM = true;
-            MainActivity.fireEvent("errorNotFileDRM");
+//            MainActivity.fireEvent("errorNotFileDRM");
         }
 
     }
