@@ -22,7 +22,7 @@
     <framework src="src/android/library" custom="true" />
     <config-file target="res/xml/config.xml" parent="/*">
       <feature name="VideoPlugin">
-        <param name="android-package" value="com.movistar.tvsindesco.corodova.plugin.VideoPlugin"/>
+        <param name="android-package" value="com.movistar.tvsindesco.cordova.plugin.VideoPlugin"/>
       </feature>
     </config-file>
   </platform>
