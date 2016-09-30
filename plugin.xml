@@ -25,8 +25,9 @@
         <param name="android-package" value="com.movistar.tvsindesco.cordova.plugin.VideoPlugin"/>
       </feature>
     </config-file>
+    <source-file src="src/android/VideoPlugin.java" target-dir="src/com/movistar/tvsindesco/cordova/plugin" />
   </platform>
         
-  <source-file src="src/android/NetworkInfoPlugin.java" target-dir="src/com/movistar/tvsindesco/cordova/plugin" />
+  
 
 </plugin>
